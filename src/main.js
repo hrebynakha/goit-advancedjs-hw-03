@@ -21,18 +21,19 @@ function handleSearchFormSubmit(e) {
     .then(images => {
       refs.gallery.innerHTML = '';
       if (images.total === 0) {
-        refs.loader.classList.add('loader-off');
         displayError();
+        refs.loader.classList.add('loader-off');
         return;
       }
       const imagesMarkup = getImagesMarkup(images);
-      refs.loader.classList.add('loader-off');
+
       refs.gallery.insertAdjacentHTML('beforeend', imagesMarkup);
       const lightbox = new SimpleLightbox('.gallery a', {
         captionsData: 'alt',
         captionDelay: 250,
       });
       lightbox.refresh();
+      refs.loader.classList.add('loader-off');
     })
     .catch(e => {
       console.error(e);
