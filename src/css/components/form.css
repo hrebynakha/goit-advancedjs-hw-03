@@ -2,6 +2,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  width: 100%;
 }
 .btn {
   margin-left: 8px;
@@ -26,7 +27,7 @@
 }
 
 .search-input {
-  width: 272px;
+  max-width: 272px;
   height: 24px;
   border-radius: 4px;
   font-family: var(--font-family);
@@ -55,4 +56,17 @@
 }
 .search-input:focus {
   border-color: var(--main-cl);
+}
+
+/* Media query for mobile responsiveness */
+@media (max-width: 375px) {
+  .search-input {
+    width: 60%;
+  }
+}
+
+@media (max-width: 320px) {
+  .search-input {
+    width: 50%;
+  }
 }
